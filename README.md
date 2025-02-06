@@ -53,6 +53,7 @@ Passos para Instalação e Execução
     Clone o repositório para a sua máquina:
 
 git clone https://github.com/vitfreire/LH_CD_VitoriaFreire.git
+
 cd LH_CD_VitoriaFreire
 
 Monte o Google Drive (para usuários do Google Colab)
