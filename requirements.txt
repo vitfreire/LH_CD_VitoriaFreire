@@ -1,0 +1,22 @@
+# Manipulação de Dados
+numpy==1.21.6
+pandas==1.3.5
+
+# Visualização de Dados
+matplotlib==3.5.1
+seaborn==0.11.2
+geopandas==0.10.2
+contextily==1.2.0
+wordcloud==1.8.1
+
+# Processamento de Texto e Geração de PDF
+fpdf==1.7.2
+tabulate==0.8.9
+
+# Machine Learning e Modelagem
+scikit-learn==1.0.2
+xgboost==1.6.2
+
+# Outras Dependências
+tqdm==4.64.0
+joblib==1.1.0
