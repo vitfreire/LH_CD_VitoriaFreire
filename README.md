@@ -3,7 +3,7 @@
 
 ## Trilha de Desenvolvimento
 
-Neste projeto, desenvolvi uma solução completa para o desafio do Lighthouse, que consistiu em:
+Neste projeto, desenvolvi uma solução completa para o desafio da Lighthouse, que consistiu em:
 
 1. **Análise Exploratória de Dados (EDA):**  
    - Carregamento, limpeza e exploração do dataset.
