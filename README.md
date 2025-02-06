@@ -1,106 +1,73 @@
-Desafio Lighthouse – Precificação de Aluguéis
-Introdução
 
-Este projeto foi desenvolvido como parte do desafio para Cientista de Dados da Lighthouse. O objetivo do desafio é testar a capacidade de resolver problemas de negócios, realizar uma análise exploratória de dados (EDA) e aplicar modelos preditivos para determinar a precificação de aluguéis.
+# Projeto Desafio Lighthouse – Precificação de Aluguéis
 
-Durante o desenvolvimento deste projeto, aprendi e apliquei conceitos de engenharia de dados, visualização, modelagem preditiva e validação de modelos. Além disso, pude aprimorar minhas habilidades em transformar dados brutos em insights acionáveis e em documentar de forma clara o processo adotado para resolver o desafio.
-Motivação e Habilidades Desenvolvidas
+## Trilha de Desenvolvimento
 
-    Análise Exploratória de Dados (EDA):
-    Realizei uma exploração detalhada do dataset, identifiquei relações entre variáveis e criei hipóteses de negócio. Essa etapa me permitiu entender melhor o comportamento dos preços dos imóveis e a importância de fatores como localização, avaliações e características dos anúncios.
+Neste projeto, desenvolvi uma solução completa para o desafio do Lighthouse, que consistiu em:
 
-    Modelagem Preditiva:
-    Desenvolvi um pipeline de machine learning utilizando transformações (OneHotEncoder e StandardScaler) e o modelo XGBRegressor. Ajustei os hiperparâmetros com RandomizedSearchCV, otimizando o modelo para prever os preços de forma eficaz.
+1. **Análise Exploratória de Dados (EDA):**  
+   - Carregamento, limpeza e exploração do dataset.
+   - Cálculo de novas features, como a proximidade de pontos turísticos.
+   - Geração de diversos gráficos (histograma, dispersão, wordcloud, heatmap, mapa geoespacial) para identificar padrões e levantar hipóteses de negócio.
 
-    Documentação e Comunicação de Resultados:
-    A criação de um relatório em PDF com gráficos, tabelas e interpretações detalhadas foi fundamental para organizar e comunicar os insights obtidos durante o projeto.
+2. **Modelagem Preditiva:**  
+   - Preparação dos dados e engenharia de features.
+   - Criação de um pipeline que integra transformações (OneHotEncoder e StandardScaler) e o modelo XGBRegressor.
+   - Ajuste de hiperparâmetros usando RandomizedSearchCV.
+   - Avaliação do modelo com métricas como RMSE, MAE e R².
+   - Exemplo de previsão e salvamento do modelo em formato .pkl.
 
-    Integração de Ferramentas:
-    Utilizei diversas bibliotecas do Python para análise de dados, visualização e modelagem, o que reforçou meu conhecimento em ferramentas amplamente utilizadas na área de Data Science.
+3. **Geração do Relatório:**  
+   - Criação de um relatório PDF com gráficos e tabelas, contendo interpretações e hipóteses levantadas durante o desenvolvimento.
+   - Os gráficos são salvos como imagens para uso futuro.
 
-Instalação e Execução
-Pré-requisitos
+## Instalação e Execução do Código
 
-    Python 3.7+
-    Ambiente de execução: Google Colab (ou outro ambiente que permita a montagem do Google Drive)
+### Pré-requisitos
 
-Dependências
+- **Python 3.7 ou superior**
+- **Google Colab** (ou outro ambiente que permita a montagem do Google Drive)
 
-O projeto utiliza as seguintes bibliotecas:
+### Passo a Passo
 
-    pandas
-    numpy
-    matplotlib
-    seaborn
-    geopandas
-    contextily
-    wordcloud
-    scikit-learn
-    xgboost
-    fpdf
-    tabulate
-    joblib
-    tqdm
+1. **Clone o Repositório**  
+   Se o código estiver hospedado no GitHub, execute:
+   ```bash
+   git clone https://github.com/vitfreire/LH_CD_VitoriaFreire.git
+   cd LH_CD_VitoriaFreire
+   ```
 
-Para instalar as dependências, execute:
+2. **Instale as Dependências**  
+   Execute o seguinte comando para instalar as bibliotecas necessárias:
+   ```bash
+   pip install pandas numpy matplotlib seaborn geopandas contextily wordcloud scikit-learn xgboost fpdf tabulate joblib tqdm
+   ```
 
-pip install pandas numpy matplotlib seaborn geopandas contextily wordcloud scikit-learn xgboost fpdf tabulate joblib tqdm
+3. **Monte o Google Drive (para Google Colab)**  
+   No início do notebook, execute:
+   ```python
+   from google.colab import drive
+   drive.mount('/content/drive', force_remount=True)
+   ```
 
-Passos para Instalação e Execução
+4. **Configure os Caminhos dos Arquivos**  
+   Verifique se os arquivos estão no local correto:  
+   - Dataset: `/content/drive/MyDrive/LH_CD/teste_indicium_precificacao.csv`
+   - Pontos turísticos: `/content/drive/MyDrive/LH_CD/pontos_turisticos.csv`  
+   - Diretório para gráficos: `/content/drive/MyDrive/LH_CD/graficos`
 
-    Clone o Repositório
+5. **Execute o Notebook**  
+   Abra e execute todas as células do notebook no Google Colab. O código fará:
+   - A análise exploratória dos dados e salvará os gráficos.
+   - O treinamento do modelo preditivo e sua avaliação.
+   - A geração do relatório PDF com todas as análises.
 
-    Clone o repositório para a sua máquina:
+6. **Verifique as Entregas**  
+   Após a execução, confirme se foram gerados:  
+   - O relatório PDF (ex.: `/content/drive/MyDrive/LH_CD/Relatorio_vit.pdf`)
+   - Os gráficos salvos na pasta especificada.
+   - O modelo salvo em formato .pkl (ex.: `/content/drive/MyDrive/LH_CD/modelo_final.pkl`)
 
-git clone https://github.com/vitfreire/LH_CD_VitoriaFreire.git
+---
 
-cd LH_CD_VitoriaFreire
-
-Monte o Google Drive (para usuários do Google Colab)
-
-No início do notebook, insira e execute:
-
-    from google.colab import drive
-    drive.mount('/content/drive', force_remount=True)
-
-    Configure os Caminhos dos Arquivos
-
-    Certifique-se de que o arquivo teste_indicium_precificacao.csv e o arquivo pontos_turisticos.csv estejam no caminho correto (por exemplo, /content/drive/MyDrive/LH_CD/).
-
-    Execute o Notebook
-
-    Abra o notebook no Google Colab e execute todas as células na ordem. O código realizará:
-        A análise exploratória dos dados, geração e salvamento de gráficos e mapas.
-        A criação e treinamento do modelo preditivo.
-        A geração de um relatório PDF contendo tabelas, gráficos e explicações.
-
-    Salvamento do Modelo
-
-    Ao final, o modelo otimizado será salvo no formato .pkl (por exemplo, em /content/drive/MyDrive/LH_CD/modelo_final.pkl).
-
-Estrutura do Projeto
-
-    Análise Exploratória (EDA):
-    Carregamento e limpeza dos dados, cálculo de novas features (incluindo pontos turísticos) e geração de visualizações que apoiam as hipóteses de negócio.
-
-    Modelagem Preditiva:
-    Preparação dos dados, criação do pipeline com transformações e XGBRegressor, ajuste de hiperparâmetros e avaliação do modelo.
-
-    Relatório PDF:
-    Um relatório completo com tabelas, gráficos e interpretações que documenta cada etapa do projeto.
-
-    Código e Documentação:
-    Todo o código segue boas práticas de programação e está devidamente comentado para facilitar a compreensão.
-
-Conclusão
-
-Este projeto não só demonstra minha capacidade de aplicar técnicas avançadas de análise de dados e modelagem preditiva, como também evidencia a importância de documentar e justificar cada passo na resolução de um problema de negócios. Ao longo do desafio, foram levantadas hipóteses como:
-
-    Distribuição dos Preços: Preços elevados podem indicar nichos premium.
-    Reviews e Demanda: Um alto número de reviews pode refletir alta demanda, influenciando a precificação.
-    Mínimo de Noites e Público-Alvo: Restrições de estadia podem direcionar os imóveis a segmentos específicos do mercado.
-    Disponibilidade: Baixa disponibilidade pode sinalizar alta demanda e preços mais elevados.
-    Proximidade de Pontos Turísticos: Imóveis próximos a atrações turísticas tendem a ser mais valorizados.
-    Padrão nos Nomes: Termos que sugerem luxo e exclusividade são mais comuns em imóveis com preços elevados.
-    Correlação entre Variáveis: Variáveis como disponibilidade e reviews são determinantes na formação dos preços.
-    Localização: A região central de Nova York é um fator importante para a precificação dos imóveis.
+Este README explica de forma concisa a trilha do desenvolvimento e fornece um passo a passo detalhado para instalar e executar o código.
