@@ -60,17 +60,18 @@ Utilizando Ambiente Local
 
 Estrutura do Projeto
 
-├── notebooks
-│   └── projeto_precificacao.ipynb   # Notebook principal com todo o código
-├── data
-│   ├── teste_indicium_precificacao.csv   # Arquivo de dados de acomodações
-│   └── pontos_turisticos.csv             # Arquivo de dados de pontos turísticos
-├── output
-│   ├── graficos                         # Pasta para os gráficos gerados
-│   ├── Relatorio_vit.pdf                # Relatório em PDF gerado
-│   └── modelo_final.pkl                 # Modelo treinado salvo
-├── requirements.txt                     # Lista de pacotes e versões necessárias
-└── README.md                            # Este arquivo
+Projeto_Precificacao/
+├── data/
+│   ├── pontos_turisticos.csv         # Dados dos pontos turísticos (ex.: nome, latitude, longitude)
+│   └── teste_indicium_precificacao.csv # Dados de acomodações (ex.: preço, número de reviews, localização, etc.)
+├── notebooks/
+│   └── projeto_precificacao.ipynb      # Notebook principal com todo o código de EDA, geração de gráficos e modelagem
+├── output/
+│   ├── graficos/                       # Pasta para armazenar os gráficos gerados durante a análise
+│   ├── Relatorio_vit.pdf               # Relatório em PDF com resultados e insights
+│   └── modelo_final.pkl                # Modelo preditivo treinado (arquivo serializado)
+├── requirements.txt                    # Lista de pacotes e versões necessárias para o projeto
+└── README.md                           # Este arquivo (documentação e instruções do projeto)
 
 Arquivo de Requisitos
 
