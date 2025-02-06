@@ -1,123 +1,105 @@
-# LH_CD_VitoriaFreire
-# Projeto de Análise Exploratória e Modelagem de Precificação
+Desafio Lighthouse – Precificação de Aluguéis
+Introdução
 
-Este projeto realiza uma análise exploratória dos dados de acomodações, incluindo o cálculo de novas features (como a proximidade a pontos turísticos) e a criação de um modelo preditivo para a precificação dos imóveis utilizando o XGBRegressor. O projeto inclui a geração de diversos gráficos, a criação de um relatório em PDF e o treinamento do modelo com ajuste de hiperparâmetros.
+Este projeto foi desenvolvido como parte do desafio para Cientista de Dados da Lighthouse. O objetivo do desafio é testar a capacidade de resolver problemas de negócios, realizar uma análise exploratória de dados (EDA) e aplicar modelos preditivos para determinar a precificação de aluguéis.
 
-## Sumário
+Durante o desenvolvimento deste projeto, aprendi e apliquei conceitos de engenharia de dados, visualização, modelagem preditiva e validação de modelos. Além disso, pude aprimorar minhas habilidades em transformar dados brutos em insights acionáveis e em documentar de forma clara o processo adotado para resolver o desafio.
+Motivação e Habilidades Desenvolvidas
 
-- [Pré-requisitos](#pré-requisitos)
-- [Instalação](#instalação)
-- [Execução do Projeto](#execução-do-projeto)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Arquivo de Requisitos](#arquivo-de-requisitos)
-- [Referências](#referências)
+    Análise Exploratória de Dados (EDA):
+    Realizei uma exploração detalhada do dataset, identifiquei relações entre variáveis e criei hipóteses de negócio. Essa etapa me permitiu entender melhor o comportamento dos preços dos imóveis e a importância de fatores como localização, avaliações e características dos anúncios.
 
-## Pré-requisitos
+    Modelagem Preditiva:
+    Desenvolvi um pipeline de machine learning utilizando transformações (OneHotEncoder e StandardScaler) e o modelo XGBRegressor. Ajustei os hiperparâmetros com RandomizedSearchCV, otimizando o modelo para prever os preços de forma eficaz.
 
-- **Python 3.7+**  
-- **Google Colab** (ou ambiente local com suporte ao Jupyter Notebook)  
-- Acesso ao **Google Drive** (caso utilize o Colab) para armazenamento e leitura dos arquivos de dados e saída do relatório/modelo.
+    Documentação e Comunicação de Resultados:
+    A criação de um relatório em PDF com gráficos, tabelas e interpretações detalhadas foi fundamental para organizar e comunicar os insights obtidos durante o projeto.
 
-## Instalação
+    Integração de Ferramentas:
+    Utilizei diversas bibliotecas do Python para análise de dados, visualização e modelagem, o que reforçou meu conhecimento em ferramentas amplamente utilizadas na área de Data Science.
 
-1. **Clone o repositório** (ou baixe os arquivos do projeto):
+Instalação e Execução
+Pré-requisitos
 
-   ```bash
-   git clone <URL_DO_REPOSITORIO>
-   cd <NOME_DO_DIRETORIO>
+    Python 3.7+
+    Ambiente de execução: Google Colab (ou outro ambiente que permita a montagem do Google Drive)
 
-    Crie um ambiente virtual (opcional, mas recomendado):
+Dependências
 
-python -m venv venv
-source venv/bin/activate   # Linux/MacOS
-venv\Scripts\activate      # Windows
+O projeto utiliza as seguintes bibliotecas:
 
-Instale os pacotes necessários usando o arquivo de requisitos:
+    pandas
+    numpy
+    matplotlib
+    seaborn
+    geopandas
+    contextily
+    wordcloud
+    scikit-learn
+    xgboost
+    fpdf
+    tabulate
+    joblib
+    tqdm
 
-    pip install -r requirements.txt
+Para instalar as dependências, execute:
 
-Execução do Projeto
-Utilizando o Google Colab
+pip install pandas numpy matplotlib seaborn geopandas contextily wordcloud scikit-learn xgboost fpdf tabulate joblib tqdm
 
-    Faça o upload do notebook (por exemplo, projeto_precificacao.ipynb) para o seu Google Drive ou abra diretamente no Colab.
+Passos para Instalação e Execução
 
-    No notebook, monte o Google Drive (o código já contém a chamada para drive.mount):
+    Clone o Repositório
+
+    Clone o repositório para a sua máquina:
+
+git clone https://github.com/vitfreire/LH_CD_VitoriaFreire.git
+cd LH_CD_VitoriaFreire
+
+Monte o Google Drive (para usuários do Google Colab)
+
+No início do notebook, insira e execute:
 
     from google.colab import drive
     drive.mount('/content/drive', force_remount=True)
 
-    Ajuste os caminhos dos arquivos de entrada e saída conforme a estrutura do seu Google Drive (os caminhos estão definidos nas variáveis file_path, output_pdf, etc.).
+    Configure os Caminhos dos Arquivos
 
-    Execute as células do notebook passo a passo para realizar a análise exploratória, gerar os gráficos, criar o relatório em PDF e treinar o modelo preditivo.
+    Certifique-se de que o arquivo teste_indicium_precificacao.csv e o arquivo pontos_turisticos.csv estejam no caminho correto (por exemplo, /content/drive/MyDrive/LH_CD/).
 
-Utilizando Ambiente Local
+    Execute o Notebook
 
-    Abra o notebook em seu ambiente local (Jupyter Notebook, VSCode, etc.).
+    Abra o notebook no Google Colab e execute todas as células na ordem. O código realizará:
+        A análise exploratória dos dados, geração e salvamento de gráficos e mapas.
+        A criação e treinamento do modelo preditivo.
+        A geração de um relatório PDF contendo tabelas, gráficos e explicações.
 
-    Caso não utilize o Google Colab, remova ou ajuste as chamadas referentes ao drive.mount e defina os caminhos dos arquivos conforme sua estrutura local.
+    Salvamento do Modelo
 
-    Execute as células do notebook conforme a ordem apresentada para obter os resultados.
+    Ao final, o modelo otimizado será salvo no formato .pkl (por exemplo, em /content/drive/MyDrive/LH_CD/modelo_final.pkl).
 
 Estrutura do Projeto
 
-data/
-Contém os arquivos de entrada com os dados utilizados no projeto.
+    Análise Exploratória (EDA):
+    Carregamento e limpeza dos dados, cálculo de novas features (incluindo pontos turísticos) e geração de visualizações que apoiam as hipóteses de negócio.
 
-    pontos_turisticos.csv: Dados dos pontos turísticos, usados para enriquecer a análise.
-    teste_indicium_precificacao.csv: Informações das acomodações, como preços, número de reviews, localização, etc.
+    Modelagem Preditiva:
+    Preparação dos dados, criação do pipeline com transformações e XGBRegressor, ajuste de hiperparâmetros e avaliação do modelo.
 
-notebooks/
-Guarda os notebooks utilizados no desenvolvimento.
+    Relatório PDF:
+    Um relatório completo com tabelas, gráficos e interpretações que documenta cada etapa do projeto.
 
-    projeto_precificacao.ipynb: Notebook que reúne todo o fluxo do projeto, desde a importação dos dados e EDA até a modelagem preditiva e geração do relatório.
+    Código e Documentação:
+    Todo o código segue boas práticas de programação e está devidamente comentado para facilitar a compreensão.
 
-output/
-Pasta destinada aos resultados e artefatos gerados.
+Conclusão
 
-    graficos/: Diretório com os gráficos produzidos na análise.
-    Relatorio_vit.pdf: Relatório final em PDF contendo as visualizações, análises e insights.
-    modelo_final.pkl: Modelo treinado, salvo para futuras previsões.
+Este projeto não só demonstra minha capacidade de aplicar técnicas avançadas de análise de dados e modelagem preditiva, como também evidencia a importância de documentar e justificar cada passo na resolução de um problema de negócios. Ao longo do desafio, foram levantadas hipóteses como:
 
-requirements.txt
-Lista todas as dependências do projeto, facilitando a reprodução do ambiente.
-
-README.md
-Documento que orienta sobre a instalação, execução e estrutura do projeto.
-
-Arquivo de Requisitos
-
-Segue um exemplo do arquivo requirements.txt com os pacotes utilizados:
-
-# Manipulação de Dados e Cálculos
-numpy==1.21.6
-pandas==1.3.5
-
-# Visualização de Dados
-matplotlib==3.5.1
-seaborn==0.11.2
-geopandas==0.10.2
-contextily==1.2.0
-wordcloud==1.8.1
-
-# Processamento de Texto e PDFs
-fpdf==1.7.2
-tabulate==0.8.9
-
-# Machine Learning e Modelagem
-scikit-learn==1.0.2
-xgboost==1.6.2
-
-# Outras Dependências
-tqdm==4.64.0
-joblib==1.1.0
-
-# (Caso utilize o Google Colab, este já possui as bibliotecas instaladas, exceto as especificadas acima)
-
-    Observação: As versões indicadas são sugestivas. Verifique a compatibilidade com seu ambiente e atualize as versões se necessário.
-
-Referências
-
-    Scikit-learn: https://scikit-learn.org/stable/
-    XGBoost: https://xgboost.readthedocs.io/en/latest/
-    FPDF: https://pyfpdf.readthedocs.io/en/latest/
-    Tabulate: https://pypi.org/project/tabulate/
+    Distribuição dos Preços: Preços elevados podem indicar nichos premium.
+    Reviews e Demanda: Um alto número de reviews pode refletir alta demanda, influenciando a precificação.
+    Mínimo de Noites e Público-Alvo: Restrições de estadia podem direcionar os imóveis a segmentos específicos do mercado.
+    Disponibilidade: Baixa disponibilidade pode sinalizar alta demanda e preços mais elevados.
+    Proximidade de Pontos Turísticos: Imóveis próximos a atrações turísticas tendem a ser mais valorizados.
+    Padrão nos Nomes: Termos que sugerem luxo e exclusividade são mais comuns em imóveis com preços elevados.
+    Correlação entre Variáveis: Variáveis como disponibilidade e reviews são determinantes na formação dos preços.
+    Localização: A região central de Nova York é um fator importante para a precificação dos imóveis.
